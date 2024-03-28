@@ -1,4 +1,7 @@
-package org.tsukue;
+package org;
+
+import org.building.TsukueFactory;
+import org.tsukue.Tsukue;
 
 public class Main {
     public static void main(String[] args) {

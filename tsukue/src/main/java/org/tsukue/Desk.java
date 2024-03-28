@@ -1,5 +1,8 @@
 package org.tsukue;
 
+import org.building.Building;
+import org.tsukue.Tsukue;
+
 public class Desk implements Tsukue {
     private final Building building;
     public Desk(Building building) {

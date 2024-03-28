@@ -1,4 +1,4 @@
-package org.tsukue;
+package org.building;
 
 public class Wood implements Material{
     @Override

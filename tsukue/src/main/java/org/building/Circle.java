@@ -1,6 +1,6 @@
-package org.tsukue;
+package org.building;
 
-public class Circle implements Shape{
+public class Circle implements Shape {
     @Override
     public String toString() {
         return "Circle";

@@ -1,4 +1,4 @@
-package org.tsukue;
+package org.building;
 
 public class StandBuilding implements Building {
     BuildingType buildingType;

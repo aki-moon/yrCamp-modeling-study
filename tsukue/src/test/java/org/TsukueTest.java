@@ -1,5 +1,6 @@
-package org.tsukue;
+package org;
 
+import org.building.TsukueFactory;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 

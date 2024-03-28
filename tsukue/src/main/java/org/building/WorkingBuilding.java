@@ -1,4 +1,4 @@
-package org.tsukue;
+package org.building;
 
 public class WorkingBuilding implements Building {
     BuildingType buildingType;

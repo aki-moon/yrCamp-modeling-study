@@ -1,4 +1,8 @@
-package org.tsukue;
+package org.building;
+
+import org.tsukue.Desk;
+import org.tsukue.Table;
+import org.tsukue.Tsukue;
 
 public class TsukueFactory {
     public static Tsukue createStandingDesk(){

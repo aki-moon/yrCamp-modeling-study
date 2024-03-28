@@ -1,31 +1,28 @@
-package org.tsukue;
+package org.building;
 
-public class Drawer {
+public class TopBoard {
     Material material;
     Shape shape;
     double width;
     double height;
     double depth;
-    int num;
 
-    public Drawer(Material material, Shape shape, double width, double height, double depth, int num) {
+    public TopBoard(Material material, Shape shape, double width, double height, double depth) {
         this.material = material;
         this.shape = shape;
         this.width = width;
         this.height = height;
         this.depth = depth;
-        this.num = num;
     }
 
     @Override
     public String toString() {
-        return "Drawer{" +
+        return "TopBoard{" +
                 "material=" + material +
                 ", shape=" + shape +
                 ", width=" + width +
                 ", height=" + height +
                 ", depth=" + depth +
-                ", num=" + num +
                 '}';
     }
 }

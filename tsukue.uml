@@ -3,10 +3,6 @@
 interface Building
 interface Material
 interface Shape
-enum BuildingType {
-  DESK
-  TABLE
-}
 class Circle
 class Drawer {
   Material material

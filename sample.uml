@@ -1,0 +1,19 @@
+@startuml 
+
+class person {
+  name
+  national
+  +name()
+}
+
+class Group {
+  name
+}
+
+class Member {
+  name
+}
+
+User .. Member
+Group .. Member
+@enduml

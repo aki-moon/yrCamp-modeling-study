@@ -1,2 +1,5 @@
-package org.tsukue;public interface Building {
+package org.tsukue;
+
+public interface Building {
+    public String build();
 }

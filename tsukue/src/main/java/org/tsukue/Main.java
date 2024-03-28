@@ -1,7 +1,11 @@
-package org.example;
+package org.tsukue;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Tsukue desk = TsukueFactory.createDesk();
+        Tsukue table = TsukueFactory.createTable();
+
+        desk.build();
+        table.build();
     }
 }

@@ -1,6 +1,6 @@
 @startuml 
 
-class person {
+class Person {
   name
   national
   +name()
@@ -14,6 +14,6 @@ class Member {
   name
 }
 
-person .. Member
+Person .. Member
 Group .. Member
 @enduml

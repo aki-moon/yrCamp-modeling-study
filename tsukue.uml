@@ -1,0 +1,66 @@
+@startuml
+
+interface Building
+interface Material
+interface Shape
+enum BuildingType {
+  DESK
+  TABLE
+}
+class Circle
+class Drawer {
+  Material material
+  Shape shape
+  double width
+  double height
+  double depth
+  int num
+}
+class Metal
+class Pillar {
+  Material material
+  Shape shape
+  double width
+  double height
+  double depth
+  int number
+}
+class Square
+class StandBuilding {
+  BuildingType buildingType
+  Pillar pillar
+  TopBoard topBoard
+}
+class TopBoard {
+  Material material
+  Shape shape
+  double width
+  double height
+  double depth
+}
+class Wood
+class WorkingBuilding {
+  BuildingType buildingType
+  Pillar pillar
+  TopBoard topBoard
+  Drawer drawer
+}
+interface Tsukue
+class Desk {
+  Building building
+}
+class Table {
+  Building building
+}
+
+Metal --|> Material
+Wood --|> Material
+Circle --|> Shape
+Square --|> Shape
+StandBuilding --|> Building
+WorkingBuilding --|> Building
+Desk --|> Tsukue
+Table --|> Tsukue
+Tsukue o-- Building
+
+@enduml

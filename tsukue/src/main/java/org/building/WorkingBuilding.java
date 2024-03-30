@@ -1,20 +1,20 @@
 package org.building;
 
+import org.tsukue.BuildingType;
+
 public class WorkingBuilding implements Building {
-    BuildingType buildingType;
     Pillar pillar;
     TopBoard topBoard;
     Drawer drawer;
 
-    public WorkingBuilding(BuildingType buildingType, Pillar pillar, TopBoard topBoard, Drawer drawer) {
-        this.buildingType = buildingType;
+    public WorkingBuilding(Pillar pillar, TopBoard topBoard, Drawer drawer) {
         this.pillar = pillar;
         this.topBoard = topBoard;
         this.drawer = drawer;
     }
 
     @Override
-    public String build() {
+    public String build(BuildingType buildingType) {
         return workBuild(buildingType, pillar, topBoard, drawer);
     }
 

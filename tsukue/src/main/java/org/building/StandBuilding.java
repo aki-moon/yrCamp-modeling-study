@@ -1,17 +1,17 @@
 package org.building;
 
+import org.tsukue.BuildingType;
+
 public class StandBuilding implements Building {
-    BuildingType buildingType;
     Pillar pillar;
     TopBoard topBoard;
-    public StandBuilding(BuildingType buildingType, Pillar pillar, TopBoard topBoard) {
-        this.buildingType = buildingType;
+    public StandBuilding(Pillar pillar, TopBoard topBoard) {
         this.pillar = pillar;
         this.topBoard = topBoard;
     }
 
     @Override
-    public String build() {
+    public String build(BuildingType buildingType) {
         return standBuild(buildingType, pillar, topBoard);
     }
 

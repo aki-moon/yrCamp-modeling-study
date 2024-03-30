@@ -11,6 +11,6 @@ public class Desk implements Tsukue {
 
     @Override
     public String build() {
-        return building.build();
+        return building.build(BuildingType.DESK);
     }
 }

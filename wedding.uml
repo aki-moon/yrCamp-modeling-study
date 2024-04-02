@@ -1,0 +1,138 @@
+@startuml
+
+enum NewlyWedsType {
+  GROOM
+  BRIDE
+}
+interface Participant {
+  isParticipate()
+  checkIn()
+  giveWeddingMoney()
+  takePhoto()
+  clap()
+  checkOut()
+}
+abstract class Friend {
+  String name
+  NewlyWedsType newlyWedsType
+  BigDecimal giftMoney
+  boolean isParticipate
+}
+class MoneySecretaryFriend {
+  receiveMoney()
+  sayThankYou()
+}
+class SpeechRepresentativeFriend {
+  friendSpeech()
+}
+class NormalFriend
+class Family {
+  String name
+  NewlyWedsType newlyWedsType
+
+  familySpeech()
+}
+class GuestBook {
+  List<String> gloomNameList
+  List<String> brideNameList
+
+  printName()
+  isParticipate()
+}
+class WeddingHost {
+  weddingHostSpeech()
+}
+class Cameraman {
+  takePhoto()
+}
+class NewlyWeds {
+  Groom groom
+  Bride bride
+  WeddingPlan weddingPlan
+}
+class Groom {
+  String name
+
+  gloomSpeech()
+  firstBite()
+}
+class Bride {
+  String name
+
+  brideSpeech()
+  firstBite()
+  makeUp()
+  bouquetToss()
+}
+class WeddingPlan {
+  Date date
+
+  plan()
+}
+class SeatingOrder {
+  int totalParticipants
+  Map<number, name> seatingOrderMap
+
+  count()
+  shuffle()
+  sitDown()
+}
+class Venue {
+  int capacity
+
+  isFull()
+}
+class Budget {
+  BigDecimal money
+
+  isOver()
+}
+class WeddingProgram {
+  Map<time, program> programMap
+
+  nextProgram()
+}
+class Schedule {
+  Date date
+
+  daysLeft()
+}
+class Food {
+  String name
+  double remainingCapacity
+
+  isremainingCapacity()
+}
+class Cloths {
+  String name
+
+  wear()
+}
+class Movie {
+  double length
+
+  remainingLength()
+}
+class Gift {
+  String name
+
+  give()
+  receive()
+}
+class WeddingPlannerPlanning {
+  plan()
+}
+
+Friend --|> Participant
+Family --|> Participant
+MoneySecretaryFriend --|> Friend
+SpeechRepresentativeFriend --|> Friend
+NormalFriend --|> Friend
+
+NewlyWeds o-- Gloom
+NewlyWeds o-- Bride
+NewlyWeds o-- WeddingPlan
+
+WeddingPlan ..> WeddingPlannerPlanning
+
+@enduml

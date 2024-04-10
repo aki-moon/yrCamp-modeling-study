@@ -58,6 +58,7 @@ AirflowControl -- Direction
 OperatingModeControl -- Controller
 TemperatureControl -- Controller
 AirflowControl -- Controller
+ConditionControl -- Condition
 Controller -- Air
 Air -- Direction
 Mode <|-- Cooling

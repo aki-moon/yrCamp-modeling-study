@@ -1,0 +1,67 @@
+@startuml
+
+class RemoteController {
+}
+class ConditionControl {
+  Condition pastCondition
+  Condition currentCondition
+}
+class OperatingModeControl {
+  Mode pastState
+  Mode currentState
+}
+class TemperatureControl {
+  double roomTemperature
+  double expectTemperature
+}
+class AirflowControl {
+  AirVolume currentAirVolume
+  AirVolume expectAirVolume
+  Direction currentDirection
+  Direction expectDirection
+}
+class Controller {
+  Air currentAir
+  Air expectAir
+}
+enum AirVolume {
+  STRONG
+  NORMAL
+  WEAK
+}
+interface Mode
+class Cooling
+class Heating
+class Dehumidification
+enum Condition {
+  ON
+  OFF
+}
+class Air {
+  double temperature
+  double humidity
+  Direction direction
+}
+enum Direction {
+  NORTH
+  SOUTH
+  EAST
+  WEST
+}
+RemoteController *-- OperatingModeControl
+RemoteController *-- TemperatureControl
+RemoteController *-- AirflowControl
+RemoteController *-- ConditionControl
+OperatingModeControl -- Mode
+AirflowControl -- AirVolume
+AirflowControl -- Direction
+OperatingModeControl -- Controller
+TemperatureControl -- Controller
+AirflowControl -- Controller
+Controller -- Air
+Air -- Direction
+Mode <|-- Cooling
+Mode <|-- Heating
+Mode <|-- Dehumidification
+
+@enduml

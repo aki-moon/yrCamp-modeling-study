@@ -1,7 +1,8 @@
 public class CoolingHygrothermalControl implements HygrothermalControl{
 
     @Override
-    public double temperatureControl(double indoorTemperature, double expectTemperature) {
-        return Math.min(indoorTemperature, expectTemperature);
+    public Air control(Air indoorAir, Air expectAir) {
+        double temperature = Math.min(indoorAir.temperature(), expectAir.temperature());
+        return new Air(temperature, indoorAir.humidity(), indoorAir.direction());
     }
 }

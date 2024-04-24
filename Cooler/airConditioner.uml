@@ -20,7 +20,7 @@ class AirflowControl {
   Direction currentDirection
   Direction expectDirection
 }
-class Controller {
+class AirController {
   Air currentAir
   Air expectAir
 }

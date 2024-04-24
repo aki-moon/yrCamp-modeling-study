@@ -1,3 +1,3 @@
 public interface HygrothermalControl {
-    public void temperatureControl();
+    double temperatureControl(double indoorTemperature, double expectTemperature);
 }

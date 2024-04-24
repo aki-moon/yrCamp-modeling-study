@@ -1,24 +1,9 @@
 @startuml
 
 class RemoteController {
-}
-class ConditionControl {
-  Condition pastCondition
-  Condition currentCondition
-}
-class OperatingModeControl {
-  Mode pastState
-  Mode currentState
-}
-class TemperatureControl {
-  double roomTemperature
-  double expectTemperature
-}
-class AirflowControl {
-  AirVolume currentAirVolume
-  AirVolume expectAirVolume
-  Direction currentDirection
-  Direction expectDirection
+  Condition condition
+  Air indoorAir
+  HygrothermalControl hygrothermalControl
 }
 class AirController {
   Air currentAir

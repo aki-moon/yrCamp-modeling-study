@@ -1,5 +1,9 @@
 @startuml
 
+class User {
+  void start()
+  void stop()
+}
 class RemoteController {
   Condition condition
   Air indoorAir
@@ -62,5 +66,6 @@ Air -- AirVolume
 HygrothermalControl <|-- CoolingHygrothermalControl
 HygrothermalControl <|-- HeatingHygrothermalControl
 HygrothermalControl <|-- DehumidificationHygrothermalControl
+User ..> RemoteController : use
 
 @enduml

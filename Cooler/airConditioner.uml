@@ -4,20 +4,20 @@ class RemoteController {
   Condition condition
   Air indoorAir
   HygrothermalControl hygrothermalControl
-}
-class AirController {
-  Air currentAir
-  Air expectAir
+  void start()
+  void stop()
 }
 enum AirVolume {
   STRONG
   NORMAL
   WEAK
 }
-interface Mode
-class Cooling
-class Heating
-class Dehumidification
+interface HygrothermalControl {
+  Air control()
+}
+class CoolingHygrothermalControl
+class HeatingHygrothermalControl
+class DehumidificationHygrothermalControl
 enum Condition {
   ON
   OFF
@@ -26,6 +26,7 @@ class Air {
   double temperature
   double humidity
   Direction direction
+  AirVolume airVolume
 }
 enum Direction {
   NORTH
@@ -33,21 +34,14 @@ enum Direction {
   EAST
   WEST
 }
-RemoteController *-- OperatingModeControl
-RemoteController *-- TemperatureControl
-RemoteController *-- AirflowControl
-RemoteController *-- ConditionControl
-OperatingModeControl -- Mode
-AirflowControl -- AirVolume
-AirflowControl -- Direction
-OperatingModeControl -- Controller
-TemperatureControl -- Controller
-AirflowControl -- Controller
-ConditionControl -- Condition
-Controller -- Air
+RemoteController -- Condition
+RemoteController -- Air
+RemoteController *-- HygrothermalControl
+HygrothermalControl -- Air
 Air -- Direction
-Mode <|-- Cooling
-Mode <|-- Heating
-Mode <|-- Dehumidification
+Air -- AirVolume
+HygrothermalControl <|-- CoolingHygrothermalControl
+HygrothermalControl <|-- HeatingHygrothermalControl
+HygrothermalControl <|-- DehumidificationHygrothermalControl
 
 @enduml

@@ -10,7 +10,7 @@ public class RemoteControllerTest {
         RemoteController remoteController;
         @Test
         void 電源をつけるとエアコンが動作する() {
-            remoteController.start();
+            remoteController.start(new HeatingHygrothermalControl(), 24);
             assertEquals(Condition.ON, remoteController.condition());
         }
         @Test

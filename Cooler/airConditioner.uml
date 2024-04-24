@@ -23,10 +23,24 @@ enum Condition {
   OFF
 }
 class Air {
-  double temperature
   double humidity
   Direction direction
   AirVolume airVolume
+  double humidity()
+  Direction direction()
+  AirVolume airVolume()
+}
+class Refrigerant {
+  double pressure
+  double pressure()
+}
+interface HeatCarrier {
+  double temperature
+  double temperature()
+}
+class Heat {
+  double amount
+  double amount()
 }
 enum Direction {
   NORTH
@@ -38,6 +52,10 @@ RemoteController -- Condition
 RemoteController -- Air
 RemoteController *-- HygrothermalControl
 HygrothermalControl -- Air
+HygrothermalControl -- Refrigerant
+HeatCarrier <|-- Refrigerant
+HeatCarrier <|-- Air
+HeatCarrier *-- Heat
 Air -- Direction
 Air -- AirVolume
 HygrothermalControl <|-- CoolingHygrothermalControl

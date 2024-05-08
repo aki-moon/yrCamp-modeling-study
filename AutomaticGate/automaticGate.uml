@@ -1,0 +1,158 @@
+@startuml
+
+Abstract class ElectronicPass {
+  BigDecimal balance
+  boolean autoCharge
+  Route route
+  Date expirationDate
+  Station entrainStation
+  BigDecimal balance()
+  boolean autoCharge()
+  Route route()
+  Date expirationDate()
+  Station entrainStation()
+  void charge()
+  void debit()
+}
+
+Abstract class Ticket {
+  Side side
+  Route route
+  Date expirationDate
+  Station entrainStation
+  Route route()
+  Date expirationDate()
+  Station entrainStation()
+  Side side()
+  void arrangeSide()
+}
+
+enum Side {
+  FRONT
+  BACK
+}
+
+class NormalTicket {
+}
+
+class RoundTripTicket {
+}
+
+class CouponTicket {
+}
+
+class CommuterTicket {
+}
+
+class AutomaticGate {
+  PassReader passReader
+  TicketReader ticketReader
+  Station automaticGateStation
+  Door door
+  ElectronicPass electronicPass
+  Ticket ticket
+  void start()
+  void stop()
+  void open()
+  void close()
+  void notifyAlert()
+  boolean coveredCommuterPass()
+  boolean coveredTicket()
+  BigDecimal fare()
+  void debit()
+  void punchTicket()
+  void printTicket()
+}
+
+class TicketReader {
+  OpenStatus status
+  boolean isTicket()
+  void start()
+  void stop()
+}
+
+class PassReader {
+  OpenStatus status
+  boolean isElectronicPass()
+  void start()
+  void stop()
+}
+
+class Door {
+  PassageStatus status
+  void open()
+  void close()
+  void checkPerson()
+}
+
+enum OpenStatus {
+  OPEN
+  CLOSE
+}
+
+enum PassageStatus {
+  PASSABLE
+  IMPASSABLE
+}
+
+class Route {
+  Station startStation
+  Station exitStation
+  Station startStation()
+  Station exitStation()
+  boolean isCovered()
+}
+
+class Station {
+  String name
+  int code
+  List<Line> lineList
+  String name()
+  int code()
+  List<Line> lineList()
+}
+
+class Line {
+  String name
+  int code
+  String name()
+  int code()
+}
+
+class Suica {
+}
+
+class Pasmo {
+}
+
+class CreditCard {
+}
+
+class AppleWatch {
+}
+
+AutomaticGate -- ElectronicPass
+ElectronicPass <|-- Suica
+ElectronicPass <|-- Pasmo
+ElectronicPass -- Route
+ElectronicPass -- Station
+Route -- Station
+Station -- Line
+CreditCard o-- ElectronicPass
+AppleWatch o-- ElectronicPass
+AutomaticGate -- PassReader
+AutomaticGate -- TicketReader
+AutomaticGate -- Door
+Door -- PassageStatus
+PassReader -- OpenStatus
+TicketReader -- OpenStatus
+AutomaticGate -- Ticket
+Ticket -- Side
+Ticket -- Route
+Ticket -- Station
+Ticket <|-- NormalTicket
+Ticket <|-- RoundTripTicket
+Ticket <|-- CouponTicket
+Ticket <|-- CommuterTicket
+
+@enduml

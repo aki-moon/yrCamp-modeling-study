@@ -1,7 +1,4 @@
-# デフォルトの無視対象ファイル
 ./.idea
 ./.DS_Store
-./.git
-./.gitmodules
 ./automaticgate_ts/dist/
 ./automaticgate_ts/node_modules/

@@ -1,0 +1,4 @@
+enum OpenStatus {
+    OPEN,
+    CLOSE,
+}

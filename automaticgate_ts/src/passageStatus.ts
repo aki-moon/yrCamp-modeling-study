@@ -1,0 +1,4 @@
+enum PassageStatus {
+    PASSABLE,
+    IMPASSABLE,
+}

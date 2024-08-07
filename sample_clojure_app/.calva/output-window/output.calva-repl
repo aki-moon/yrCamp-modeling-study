@@ -75,3 +75,125 @@ clj꞉sample-clojure-app.core꞉> 
 clj꞉sample-clojure-app.core꞉> 
 #'sample-clojure-app.core/foo
 clj꞉sample-clojure-app.core꞉> 
+15
+clj꞉sample-clojure-app.core-test꞉> 
+15
+clj꞉sample-clojure-app.core-test꞉> 
+; Syntax error compiling at (test/sample_clojure_app/core_test.clj:7:5).
+; Unable to resolve symbol: fibs in this context
+clj꞉sample-clojure-app.core-test꞉> 
+(deftest fibs-work-test
+  (testing "FIXME, I fail."
+    (is (= fibs 15 [1 1 2 3 5 8 13 21 34 55 89 144 233 377 610]))))
+; Syntax error compiling at (.calva/output-window/output.calva-repl:87:5).
+; Unable to resolve symbol: fibs in this context
+clj꞉sample-clojure-app.core-test꞉> 
+(defn fibs-work [n i fs]
+  (if (= i n)
+    fs
+    (fibs-work n (inc i) (conj fs (apply + (take-last 2 fs))))))
+#'sample-clojure-app.core-test/fibs-work
+clj꞉sample-clojure-app.core-test꞉> 
+(defn fibs [n]
+  (cond
+    (< n 1) []
+    (= n 1) [1]
+    :else (fibs-work n 2 [1 1])))
+#'sample-clojure-app.core-test/fibs
+clj꞉sample-clojure-app.core-test꞉> 
+fibs 15
+15
+clj꞉sample-clojure-app.core-test꞉> 
+(fibs 15)
+[1 1 2 3 5 8 13 21 34 55 89 144 233 377 610]
+[1 1 2 3 5 8 13 21 34 55 89 144 233 377 610]
+clj꞉sample-clojure-app.core-test꞉> 
+; nREPL Connection was closed
+; Jacking in...
+; Connecting using "Leiningen" project type.
+; You can make Calva auto-select this.
+;   - See https://calva.io/connect-sequences/
+; 
+
+; Starting Jack-in: (cd /Users/matsunoaki/Desktop/git/yrCamp-modeling-study/sample_clojure_app; lein update-in :dependencies conj '[nrepl,"1.1.1"]' -- update-in :plugins conj '[cider/cider-nrepl,"0.47.1"]' -- update-in '[:repl-options,:nrepl-middleware]' conj '["cider.nrepl/cider-middleware"]' -- repl :headless)
+; Using host:port 127.0.0.1:62080 ...
+; Hooking up nREPL sessions ...
+; Connected session: clj
+; Evaluating code from settings: 'calva.autoEvaluateCode.onConnect.clj'
+nil
+clj꞉sample-clojure-app.core꞉> 
+; Jack-in done.
+clj꞉sample-clojure-app.core꞉> 
+(defn fibs-work [n i fs]
+  (if (= i n)
+    fs
+    (fibs-work n (inc i) (conj fs (apply + (take-last 2 fs))))))
+#'sample-clojure-app.core/fibs-work
+clj꞉sample-clojure-app.core꞉> 
+(defn fibs [n]
+  (cond
+    (< n 1) []
+    (= n 1) [1]
+    :else (fibs-work n 2 [1 1])))
+#'sample-clojure-app.core/fibs
+clj꞉sample-clojure-app.core꞉> 
+(fibs 15)
+[1 1 2 3 5 8 13 21 34 55 89 144 233 377 610]
+clj꞉sample-clojure-app.core꞉> 
+(+ 1 1)
+2
+clj꞉sample-clojure-app.core꞉> 
+(fibs 20)
+[1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765]
+clj꞉sample-clojure-app.core꞉> 
+(fibs 10
+      )
+[1 1 2 3 5 8 13 21 34 55]
+clj꞉sample-clojure-app.core꞉> 
+(fibs 20)
+[1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765]
+clj꞉sample-clojure-app.core꞉> 
+(defn fact-1 [n]
+  (if (= n 0) 1
+      (*' n (fact-1 (dec n)))))
+#'sample-clojure-app.core/fact-1
+clj꞉sample-clojure-app.core꞉> 
+(defn fact [n]
+  (if (= n 0) 1
+      (*' n (fact-1 (dec n)))))
+#'sample-clojure-app.core/fact
+clj꞉sample-clojure-app.core꞉> 
+(fact 20)
+2432902008176640000
+clj꞉sample-clojure-app.core꞉> (def a 2)
+#'sample-clojure-app.core/a
+clj꞉sample-clojure-app.core꞉> 
+(println (Math/pow a 8.0))
+; 256.0
+nil
+clj꞉sample-clojure-app.core꞉> 
+(println (Math/pow a 20.0))
+; 1048576.0
+nil
+clj꞉sample-clojure-app.core꞉> 
+(println (Math/pow a 25.0))
+; 3.3554432E7
+nil
+clj꞉sample-clojure-app.core꞉> 
+(println (Math/pow a 30.0))
+; 1.073741824E9
+nil
+clj꞉sample-clojure-app.core꞉> 
+33554432 / 1048576
+1048576
+clj꞉sample-clojure-app.core꞉> 
+(33554432 / 1048576)
+; Execution error (ClassCastException) at sample-clojure-app.core/eval10375 (form-init13509274968949222773.clj:190).
+; class java.lang.Long cannot be cast to class clojure.lang.IFn (java.lang.Long is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+clj꞉sample-clojure-app.core꞉> 
+(/ 33554432 1048576)
+32
+clj꞉sample-clojure-app.core꞉> 
+(/ 1.073741824E9 3.3554432E7)
+32.0
+clj꞉sample-clojure-app.core꞉> 
